@@ -25,9 +25,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       	<% if current_user.nil? %>
+      	<li><a href="#"><span class="badge">4</span>Корзина</a></li>
         <li><%= link_to 'Регистрация', new_user_registration_path%></li>
 		<li><%= link_to 'Вход', new_user_session_path%></li>
-       	
+       	<%else%>
+       	<a href="#">Inbox <span class="badge">42</span></a>
         <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->
