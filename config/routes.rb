@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'items/category'
 
+  get 'orders/create_order'
+
+  get 'items/cart_add'
+
   get 'items/cart'
 
   # The priority is based upon order of creation: first created -> highest priority.

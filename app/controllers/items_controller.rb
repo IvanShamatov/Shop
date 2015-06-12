@@ -12,6 +12,14 @@ class ItemsController < ApplicationController
   end
 
   def cart
+  	session[:cart].each do |s|
+  		(@c ||= []) << Item.where(id: s)
+  	end
+  end
+
+  def cart_add
+    (session[:cart] ||= []) << params[:item]
+   	redirect_to action: "index"
   end
 
   def category
