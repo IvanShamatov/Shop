@@ -1,2 +1,24 @@
-<%=@c.inspect%>
-
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <td><h5>Изображение</h5></td>
+      <td><h5>Название</h5></td>
+      <td><h5>Цена</h5></td>
+      <td><h5>Удалить</h5></td>
+    </tr>
+    <%@c.each do |c|%>
+    <tr>
+      <td><%=image_tag(c.image, width: '90', alt: c.name)%></td>
+      <td><%=c.name%></td>
+      <td><%=c.price%></td>
+      <td><%=link_to 'Удалить', items_cart_add_path(:del_item => c.id), {class: "btn btn-primary", role: "button"}%></td>
+    </tr>
+    <%end%>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%=link_to 'Оформить заказ', items_cart_add_path, {class: "btn btn-primary", role: "button"}%></td>
+    </tr>
+</table>
+</div>

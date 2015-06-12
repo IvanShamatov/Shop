@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def cart
   	session[:cart].each do |s|
-  		(@c ||= []) << Item.where(id: s)
+  		(@c ||= []) << Item.find(s)
   	end
   end
 
