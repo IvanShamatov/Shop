@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'items/show'
 
+  get 'items/category'
+
   get 'items/cart'
 
   # The priority is based upon order of creation: first created -> highest priority.

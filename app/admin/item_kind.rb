@@ -1,9 +1,9 @@
-ActiveAdmin.register Item do
+ActiveAdmin.register ItemKind do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, :description, :price, :image, :item_kind_id
+permit_params :name
 #
 # or
 #
@@ -12,14 +12,11 @@ permit_params :name, :description, :price, :image, :item_kind_id
 #   permitted << :other if resource.something?
 #   permitted
 # end
+
 index do
 	column :name
-	column :description
-	column :price
-	column :image do |item|
-		image_tag item.image.url, size: '100x100'
-	end
 	actions
 end
+
 
 end
