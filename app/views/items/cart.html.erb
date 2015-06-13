@@ -20,9 +20,9 @@
     <tr>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td><%=link_to 'Оформить заказ', items_cart_add_path, {class: "btn btn-primary", role: "button"}%></td>
+      <td><h5>Сумма заказа:</h5></td>
+      <td><h5><%=@p%>руб.</h5></td>
+      <td><%=link_to 'Оформить заказ',  orders_create_order_path, {class: "btn btn-primary", role: "button"}%></td>
     </tr>
 </table>
 </div>

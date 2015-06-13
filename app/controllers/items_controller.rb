@@ -12,10 +12,14 @@ class ItemsController < ApplicationController
   end
 
   def cart
-  	session[:cart].each do |s|
-  		(@c ||= []) << [Item.find(s), session[:cart].count(s)]
-  	end
-    @c.uniq! unless @c.nil?
+    unless session[:cart].nil?
+    	session[:cart].each do |s|
+    		(@c ||= []) << [Item.find(s), session[:cart].count(s)]
+        @p ||= 0
+        @p += Item.find(s).price
+    	end
+      @c.uniq! unless @c.nil?
+    end
   end
 
   def cart_add
