@@ -1,20 +1,24 @@
+<%unless @c.nil?%>
 <div class="table-responsive">
   <table class="table">
     <tr>
       <td><h5>Изображение</h5></td>
       <td><h5>Название</h5></td>
       <td><h5>Цена</h5></td>
+      <td><h5>Количество</h5></td>
       <td><h5>Удалить</h5></td>
     </tr>
-    <%@c.each do |c|%>
-    <tr>
-      <td><%=image_tag(c.image, width: '90', alt: c.name)%></td>
-      <td><%=c.name%></td>
-      <td><%=c.price%></td>
-      <td><%=link_to 'Удалить', items_cart_add_path(:del_item => c.id), {class: "btn btn-primary", role: "button"}%></td>
-    </tr>
+    <%@c.each do |q|%>
+        <tr>
+          <td><%=image_tag(q[0].image, width: '90', alt: q[0].name)%></td>
+          <td><%=q[0].name%></td>
+          <td><%=q[0].price%></td>
+          <td><%=q[1]%></td>
+          <td><%=link_to 'Удалить', items_cart_del_path(:del_id => q[0].id), {class: "btn btn-primary", role: "button"}%></td>
+        </tr>
     <%end%>
     <tr>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -22,3 +26,6 @@
     </tr>
 </table>
 </div>
+<%else%>
+<h3>Ваша корзина пуста</h3>
+<%end%>
