@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   get 'items/category'
 
-  get 'orders/create_order'
+  post 'orders/create_order'
+
+  get 'orders/create_user'
 
   get 'items/cart_add'
 

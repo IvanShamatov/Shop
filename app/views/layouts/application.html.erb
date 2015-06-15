@@ -25,6 +25,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       	<% if current_user.nil? %>
+        <li><%= link_to "Корзина <span class='badge'>#{session[:cart].length unless session[:cart].nil?}</span>".html_safe,items_cart_path%></li>
         <li><%= link_to 'Регистрация', new_user_registration_path%></li>
 		    <li><%= link_to 'Вход', new_user_session_path%></li>
        	<%else%>

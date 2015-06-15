@@ -22,7 +22,11 @@
       <td></td>
       <td><h5>Сумма заказа:</h5></td>
       <td><h5><%=@p%>руб.</h5></td>
+      <%unless current_user.nil?%>
       <td><%=link_to 'Оформить заказ',  orders_create_order_path, {class: "btn btn-primary", role: "button"}%></td>
+      <%else%>
+        <td><%=link_to 'Оформить заказ без регистрации',  orders_create_user_path, {class: "btn btn-primary", role: "button"}%></td>
+      <%end%>
     </tr>
 </table>
 </div>
